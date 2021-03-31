@@ -1,0 +1,19 @@
+{
+  "name": "Instaclone-Backend-built-with-Prisma-and-GraphQL",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/han-jojo/Instaclone-Backend-built-with-Prisma-and-GraphQL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/han-jojo/Instaclone-Backend-built-with-Prisma-and-GraphQL/issues"
+  },
+  "homepage": "https://github.com/han-jojo/Instaclone-Backend-built-with-Prisma-and-GraphQL#readme"
+}
