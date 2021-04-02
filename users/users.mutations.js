@@ -7,32 +7,40 @@ export default {
       _,
       { firstName, lastName, username, email, password }
     ) => {
-      //username이나 email이 이미 DB에 존재하는지 확인한다
-      const exitingUser = await client.user.findFirst({
-        where: {
-          OR: [
-            {
-              username,
-            },
-            {
-              email,
-            },
-          ],
-        },
-      });
-      console.log(exitingUser);
-      // hash password
-      const uglyPassword = await bcrypt.hash(password, 10);
-      // save and return the user
-      return client.user.create({
-        data: {
-          username,
-          email,
-          firstName,
-          lastName,
-          password: uglyPassword,
-        },
-      });
+      try {
+        //username이나 email이 이미 DB에 존재하는지 확인한다
+        const existingUser = await client.user.findFirst({
+          where: {
+            OR: [
+              {
+                username,
+              },
+              {
+                email,
+              },
+            ],
+          },
+        });
+
+        if (existingUser) {
+          throw new Error("This username or password is already taken");
+        }
+
+        // hash password
+        const uglyPassword = await bcrypt.hash(password, 10);
+        // save and return the user
+        return client.user.create({
+          data: {
+            username,
+            email,
+            firstName,
+            lastName,
+            password: uglyPassword,
+          },
+        });
+      } catch(e) {
+        return e;
+      }
     },
   },
 };
