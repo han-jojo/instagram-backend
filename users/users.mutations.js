@@ -1,4 +1,5 @@
 import client from "../client";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 export default {
@@ -62,6 +63,11 @@ export default {
       }
 
       //둘 다 통과시 user에게 token을 발행한다
+      const token = await jwt.sign({ id: user.id }, process.env.SECRET_KEY);
+      return {
+        ok: true,
+        token,
+      };
     },
   },
 };
