@@ -3,8 +3,6 @@ import bcrypt from "bcrypt";
 import { createWriteStream } from "fs";
 import { protectedResolver } from "../users.utils";
 
-console.log(process.cwd());
-
 const resolverFn = async (
   _,
   { firstName, lastName, username, email, password: newPassword, bio, avatar },
@@ -18,7 +16,7 @@ const resolverFn = async (
   const writeStream = createWriteStream(process.cwd() + "/uploads/" + filename);
   readStream.pipe(writeStream);
   //aws 부분
-  
+
   console.log(readStream);
   
   let uglyPassword = null;
