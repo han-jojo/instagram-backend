@@ -1,6 +1,9 @@
 import client from "../../client";
 import bcrypt from "bcrypt";
+import { createWriteStream } from "fs";
 import { protectedResolver } from "../users.utils";
+
+console.log(process.cwd());
 
 const resolverFn = async (
   _,
@@ -9,8 +12,14 @@ const resolverFn = async (
 ) => {
   
   const { filename, createReadStream } = await avatar;
-  const stream = createReadStream();
-  console.log(stream);
+  const readStream = createReadStream();
+
+  //aws 부분
+  const writeStream = createWriteStream(process.cwd() + "/uploads/" + filename);
+  readStream.pipe(writeStream);
+  //aws 부분
+  
+  console.log(readStream);
   
   let uglyPassword = null;
   if (newPassword) uglyPassword = await bcrypt.hash(newPassword, 10);
