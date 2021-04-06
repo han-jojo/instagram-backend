@@ -15,7 +15,7 @@ Node.js 를 이용하여 인스타그램을 클론코딩 합니다.
 - [x] See Profile
 - [x] Login
 - [x] Edit Profile
-- [ ] File upload
+- [x] File upload & Changing Profile Picture
 - [ ] Follow
 - [ ] Unfollow
 - [ ] Change Avatar (Image Upload)
