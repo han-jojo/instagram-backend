@@ -11,5 +11,7 @@ export default gql`
     updatedAt: String!
     bio: String
     avatar: String
+    followings: [User]
+    followers: [User]
   }
 `;
