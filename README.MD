@@ -18,7 +18,8 @@ Node.js 를 이용하여 인스타그램을 클론코딩 합니다.
 - [x] Change Avatar (Image Upload)
 - [x] Follow AND Unfollow
 - [x] See Follows and Prisma Pagination
-- [ ] Computed Fields
+- [x] Computed Fields
+- [x] Search Users
 - [ ] Upload Photo
 - [ ] Seeing and Editing Photo
 - [ ] Like
