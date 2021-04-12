@@ -23,6 +23,8 @@ Node.js 를 이용하여 인스타그램을 클론코딩 합니다.
 - [x] Upload Photo
 - [x] Seeing and Editing Photo
 - [x] See Hashtags
+- [x] Search Photos
+- [ ] Edit Photo
 - [ ] Like
 - [ ] Comment
 - [ ] 채팅창 생성, 메시지 전송, 조회
