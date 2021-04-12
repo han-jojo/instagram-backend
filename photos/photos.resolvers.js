@@ -15,7 +15,7 @@ export default {
       }),
   },
 
-  Hashtags: {
+  Hashtag: {
     photos: ({ id }, { page }, { loggedInUser }) => {
       return client.hashtag
         .findUnique({
