@@ -9,11 +9,8 @@ export default {
         let hashtagObj = [];
 
         if (caption) {
-          //캡션을 검사한다
           hashtagObj = processHashtags(caption);
-          //해쉬태그를 생성하거나 가져온다
         }
-        //생성된 해쉬태그와 함게 사진을 저장한다
         return client.photo.create({
           data: {
             file,
