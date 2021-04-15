@@ -17,7 +17,7 @@ export default {
       }
 
       const likeWhere = {
-        photoid_userId: {
+        photoId_userId: {
           userId: loggedInUser.id,
           photoId: id,
         },

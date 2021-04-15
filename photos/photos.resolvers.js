@@ -19,7 +19,7 @@ export default {
       if (!loggedInUser) {
         return false;
       }
-      return userId == loggedInUser.id;
+      return userId === loggedInUser.id;
     },
   },
 
