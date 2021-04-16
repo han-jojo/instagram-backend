@@ -27,5 +27,4 @@ Node.js 를 이용하여 인스타그램을 클론코딩 합니다.
 - [x] Edit Photo
 - [x] Like Unlike
 - [ ] Comment
-- [ ] 채팅창 생성, 메시지 전송, 조회
-- [ ] 구독
+- [ ] Direct Message
