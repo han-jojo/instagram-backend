@@ -31,7 +31,7 @@ export default {
                     id: userId,
                   },
                   {
-                    id: loggedInUser,
+                    id: loggedInUser.id,
                   },
                 ],
               },
