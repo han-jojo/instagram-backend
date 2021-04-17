@@ -11,20 +11,8 @@ Node.js 를 이용하여 인스타그램을 클론코딩 합니다.
 
 ## Backend 파트 User, Photo module, Direct Message 개발 중
 
-- [x] Create Account
-- [x] See Profile
-- [x] Login
-- [x] Edit Profile
-- [x] Change Avatar (Image Upload)
-- [x] Follow AND Unfollow
-- [x] See Follows and Prisma Pagination
-- [x] Computed Fields
-- [x] Search Users
-- [x] Upload Photo
-- [x] Seeing and Editing Photo
-- [x] See Hashtags
-- [x] Search Photos
-- [x] Edit Photo
-- [x] Like Unlike
-- [ ] Comment
-- [ ] Direct Message
+- [x] User
+- [x] Photo
+- [x] Comment
+- [ ] Direct Message (developing)  
+

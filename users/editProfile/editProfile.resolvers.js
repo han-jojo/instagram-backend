@@ -11,7 +11,7 @@ const resolverFn = async (
 ) => {
   let avatarUrl = null;
   if (avatar) {
-    avataUrl = await uploadToS3(avatar, loggedInUser.id, "avatars");
+    avatarUrl = await uploadToS3(avatar, loggedInUser.id, "avatars");
 
     /*
     const { filename, createReadStream } = await avatar;
