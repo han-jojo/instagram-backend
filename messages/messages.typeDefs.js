@@ -12,6 +12,7 @@ export default gql`
 
   type Room {
     id: Int!
+    users: [User]
     messages: [Message]
     createdAt: String!
     updatedAt: String!
