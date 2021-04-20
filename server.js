@@ -5,7 +5,6 @@ import logger from "morgan";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs, resolvers } from "./schema";
 import { getUser } from "./users/users.utils";
-import pubsub from "./pubsub";
 
 const PORT = process.env.PORT;
 const apollo = new ApolloServer({
@@ -14,7 +13,7 @@ const apollo = new ApolloServer({
   context: async (ctx) => {
     if (ctx.req) {
       return {
-        loggedInUser: await getUser(ctx.headers.token),
+        loggedInUser: await getUser(ctx.req.headers.token),
       };
     } else {
       const {
@@ -25,10 +24,10 @@ const apollo = new ApolloServer({
       };
     }
   },
-  subscription: {
+  subscriptions: {
     onConnect: async ({ token }) => {
       if (!token) {
-        throw new Error("You can't listen");
+        throw new Error("You can't listen.");
       }
       const loggedInUser = await getUser(token);
       return {
@@ -45,6 +44,7 @@ app.use("/static", express.static("uploads"));
 
 const httpServer = http.createServer(app);
 apollo.installSubscriptionHandlers(httpServer);
-httpServer.listen({ port: PORT }, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}/graphql ✅`);
+
+httpServer.listen(PORT, () => {
+  console.log(`🚀Server is running on http://localhost:${PORT} ✅`);
 });
