@@ -20,8 +20,27 @@ export default {
         }
         return withFilter(
           () => pubsub.asyncIterator(NEW_MESSAGE),
-          ({ roomUpdates }, { id }) => {
-            return roomUpdates.roomId === id;
+          async ({ roomUpdates }, { id }, { loggedInUser }) => {
+            if (roomUpdates.roomId === id) {
+              const room = await client.room.findFirst({
+                where: {
+                  id,
+                  users: {
+                    some: {
+                      id: loggedInUser.id,
+                    },
+                  },
+                },
+                select: {
+                  id: true,
+                },
+              });
+
+              if (!room) {
+                return false;
+              }
+              return true;
+            }
           }
         )(root, args, context, info);
       },
