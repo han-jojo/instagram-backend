@@ -1,4 +1,4 @@
-# Instagram 클론
+# Instaclone-Backend-built-with-Prisma-and-GraphQL
 
 Node.js 를 이용하여 인스타그램을 클론코딩 합니다.
 
