@@ -21,7 +21,7 @@ export default {
             id: loggedInUser.id,
           },
           data: {
-            followings: {
+            following: {
               disconnect: {
                 username,
               },

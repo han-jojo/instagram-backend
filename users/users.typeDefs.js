@@ -12,7 +12,7 @@ export default gql`
     bio: String
     avatar: String
     photos: [Photo]
-    followings: [User]
+    following: [User]
     followers: [User]
     totalFollowing: Int!
     totalFollowers: Int!

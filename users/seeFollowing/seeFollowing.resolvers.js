@@ -15,9 +15,9 @@ export default {
         };
       }
 
-      const followings = await client.user
+      const following = await client.user
         .findUnique({ where: { username } })
-        .followings({
+        .following({
           take: 5,
           skip: lastId ? 1 : 0,
           ...(lastId && { cursor: { id: lastId } }),
@@ -25,7 +25,7 @@ export default {
 
       return {
         ok: true,
-        followings,
+        following,
       };
     },
   },
