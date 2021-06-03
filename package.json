@@ -4,10 +4,12 @@
   "description": "",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "dev": "nodemon --exec babel-node server --delay 1",
+    "dev": "nodemon --exec babel-node src/server --delay 1",
     "migrate": "npx prisma migrate dev --preview-feature",
     "studio": "npx prisma studio",
-    "tunnel": "npx localtunnel --port 4000"
+    "tunnel": "npx localtunnel --port 4000",
+    "build": "babel src --out-dir build",
+    "start": "node build/server"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/han-jojo/Instaclone-Backend-built-with-Prisma-and-GraphQL#readme",
   "dependencies": {
+    "@babel/cli": "^7.14.3",
     "@prisma/client": "^2.21.2",
     "apollo-server": "^2.22.2",
     "apollo-server-express": "^2.22.2",
@@ -31,11 +34,14 @@
     "graphql": "^15.5.0",
     "graphql-tools": "^7.0.2",
     "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
     "@babel/node": "^7.13.13",
+    "@babel/plugin-transform-regenerator": "^7.13.15",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.13.15",
     "nodemon": "^2.0.7",
     "prisma": "^2.21.2"
