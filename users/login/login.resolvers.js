@@ -19,7 +19,15 @@ export default {
           error: "Incorrect password.",
         };
       }
+
       const token = await jwt.sign({ id: user.id }, process.env.SECRET_KEY);
+
+      console.log("token: ", token);
+
+      /*
+        https://jwt.io 에서 토큰값 decode 가능
+      */
+
       return {
         ok: true,
         token,
