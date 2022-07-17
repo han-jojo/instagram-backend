@@ -20,17 +20,19 @@ export default {
             ],
           },
         });
+
         if (existingUser) {
-          throw new Error("This username/password is already taken.");
+          throw new Error("이미 존재하는 username/E-Mail입니다.");
         }
-        const uglyPassword = await bcrypt.hash(password, 10);
+
+        const encryptedPassword = await bcrypt.hash(password, 10);
         return client.user.create({
           data: {
             username,
             email,
             firstName,
             lastName,
-            password: uglyPassword,
+            password: encryptedPassword,
           },
         });
       } catch (e) {

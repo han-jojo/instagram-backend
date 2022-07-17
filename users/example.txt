@@ -1,0 +1,47 @@
+mutation {
+  createAccount(
+    firstName: "지호"
+    lastName: "한"
+    email: "example@test.com"
+    username: "ID"
+    password: "password"
+  ) {
+    ok
+    error
+  }
+}
+
+{
+  seeProfile(username: "ID") {
+    id
+    firstName
+    lastName
+    username
+    email
+    createdAt
+    updatedAt
+    bio
+    avatar
+  }
+}
+
+mutation {
+  login(
+    username: "ID"
+    password: "password"
+  ) {
+    ok
+    token
+    error
+  }
+}
+
+mutation($avatar: Upload) {
+  editProfile(
+    bio: "자기소개"
+    avatar: $avatar
+  ) {
+    ok
+    error
+  }
+}
