@@ -1,6 +1,7 @@
 # Instagram-Backend
 
 ## Built with
+
 - `Apollo`
-- `GraphQL` 
+- `GraphQL`
 - `Prisma`
