@@ -2,6 +2,8 @@ import { createWriteStream } from "fs";
 import bcrypt from "bcrypt";
 import client from "../../client";
 import { protectedResolver } from "../users.utils";
+import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
+
 /*
   ## Issue
 - 파일 업로드 Maximum call stack size exceeded Error 에러 시
@@ -23,7 +25,7 @@ export default {
           email,
           password: newPassword,
           bio,
-          avatar,
+          file,
         },
         { loggedInUser }
       ) => {
@@ -37,8 +39,8 @@ export default {
         //프로필 사진 업로드 및 변경 시
         let avatarUrl = null;
 
-        if (avatar) {
-          const { filename, createReadStream } = await avatar;
+        if (file) {
+          const { createReadStream, filename } = await file;
           const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
           const readStream = createReadStream();
           const writeStream = createWriteStream(
@@ -77,4 +79,5 @@ export default {
       }
     ),
   },
+  Upload: GraphQLUpload,
 };

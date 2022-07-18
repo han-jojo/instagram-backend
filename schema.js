@@ -1,4 +1,5 @@
-import { loadFilesSync, mergeResolvers, mergeTypeDefs } from "graphql-tools";
+import { loadFilesSync } from "@graphql-tools/load-files";
+import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
 
 /*
 __filename 은 현재 실행 중인 파일 경로
