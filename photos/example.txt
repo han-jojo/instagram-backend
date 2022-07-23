@@ -1,6 +1,6 @@
 // Query
 
-// 사진 보기
+// 사진 보기 seePhoto
 {
   seePhoto(id: 1) {
     id
@@ -13,7 +13,7 @@
   }
 }
 
-// 해시태그 검색
+// 해시태그 검색 seeHashtag
 {
     seeHashtag(hashtag: "string") {
         id
@@ -25,15 +25,67 @@
     }
 }
 
+// 사진 보기 seePhoto
+{
+  seePhoto(id: 1) {
+    id
+    file
+    user
+    caption
+    hashtags
+    likes
+  }
+}
+
+// 사진 좋아요 보기 seePhotoLikes
+{
+  seePhotoLikes(id: 1) {
+    id
+    firstName
+    lastName
+    username
+  }
+}
+
+// 사진 피드 보기
+{
+  seeFeed {
+    id
+    file
+    user
+    caption
+    hashtags
+    likes
+  }
+}
 
 // Mutation
 
-// 사진 업로드
+// 사진 업로드 uploadPhoto
 mutation($file: Upload) {
   uploadPhoto(
     caption: "자기소개"
     file: $file
   ) {
+    ok
+    error
+  }
+}
+
+// 사진 수정하기 editPhoto
+mutation($file: Upload) {
+  editPhoto(
+    id: 1,
+    caption: "string"
+  ) {
+    ok
+    error
+  }
+}
+
+// 사진 좋아요 toggleLike
+mutation {
+  toggleLike(id: 1){
     ok
     error
   }
