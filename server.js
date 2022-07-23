@@ -31,6 +31,9 @@ const startServer = async () => {
   console.log(
     `🚀Server is running on http://localhost:${PORT}${apollo.graphqlPath} ✅`
   );
+  /* 
+    http://localhost:4000/graphql 
+  */
 };
 
 startServer();

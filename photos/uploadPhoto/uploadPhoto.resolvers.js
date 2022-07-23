@@ -1,6 +1,7 @@
 import client from "../../client";
 import { protectedResolver } from "../../users/users.utils";
 import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
+import { processHashtags } from "../photos.utils";
 
 export default {
   Mutation: {
@@ -8,13 +9,7 @@ export default {
       async (_, { file, caption }, { loggedInUser }) => {
         let hashtagObj = [];
         if (caption) {
-          // 내용(caption) 처리
-          // 해쉬태그 처리
-          const hashtags = caption.match(/#[\w]+/g);
-          hashtagObj = hashtags.map((hashtag) => ({
-            where: { hashtag },
-            create: { hashtag },
-          }));
+          hashtagObj = processHashtags(caption);
         }
 
         let imageUrl = null;

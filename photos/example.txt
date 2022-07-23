@@ -1,0 +1,40 @@
+// Query
+
+// 사진 보기
+{
+  seePhoto(id: 1) {
+    id
+    user
+    file
+    caption
+    hashtags
+    createdAt
+    updatedAt
+  }
+}
+
+// 해시태그 검색
+{
+    seeHashtag(hashtag: "string") {
+        id
+        hashtag
+        photos
+        totalPhotos
+        createdAt
+        updatedAt
+    }
+}
+
+
+// Mutation
+
+// 사진 업로드
+mutation($file: Upload) {
+  uploadPhoto(
+    caption: "자기소개"
+    file: $file
+  ) {
+    ok
+    error
+  }
+}

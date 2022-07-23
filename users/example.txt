@@ -1,3 +1,59 @@
+// Query
+
+//프로필 조회
+{
+  seeProfile(username: "ID") {
+    id
+    firstName
+    lastName
+    username
+    email
+    createdAt
+    updatedAt
+    bio
+    avatar
+    following
+    followers
+    totalFollowing
+    totalFollowers
+    isFollowing
+    isMe
+  }
+}
+
+//프로필 검색
+{
+  searchUsers(keywords: "string") {
+    id
+    firstName
+    lastName
+    username
+    email
+  }
+}
+
+//팔로워 보기
+{
+  seeFollowers(username: "string") {
+    ok
+    error
+    followers
+    totalPages
+  }
+}
+
+//팔로잉 보기
+{
+  seeFollowings(username: "string", lastId: 1) {
+    ok
+    error
+    following
+  }
+}
+
+//Mutation
+
+//회원가입
 mutation {
   createAccount(
     firstName: "지호"
@@ -11,20 +67,7 @@ mutation {
   }
 }
 
-{
-  seeProfile(username: "ID") {
-    id
-    firstName
-    lastName
-    username
-    email
-    createdAt
-    updatedAt
-    bio
-    avatar
-  }
-}
-
+//로그인
 mutation {
   login(
     username: "ID"
@@ -36,11 +79,28 @@ mutation {
   }
 }
 
+//프로필 수정(사진 업로드)
 mutation($avatar: Upload) {
   editProfile(
     bio: "자기소개"
     avatar: $avatar
   ) {
+    ok
+    error
+  }
+}
+
+//팔로우하기
+mutation {
+  followUser(username: "string") {
+    ok
+    error
+  }
+}
+
+//언팔로우하기
+mutation {
+  unfollowUser(username: "string") {
     ok
     error
   }
