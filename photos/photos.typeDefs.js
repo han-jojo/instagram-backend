@@ -10,6 +10,7 @@ export default gql`
     createdAt: String!
     updatedAt: String!
     likes: Int!
+    isMine: Boolean!
   }
 
   type Hashtag {
