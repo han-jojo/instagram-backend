@@ -78,7 +78,7 @@ model Comment {
 model Room {
   id        Int       @id @default(autoincrement())
   users     User[]
-  message   Message[]
+  messages  Message[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
@@ -90,6 +90,7 @@ model Message {
   userId    Int
   room      Room     @relation(fields: [roomId], references: [id])
   roomId    Int
+  read      Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
